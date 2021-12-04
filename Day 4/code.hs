@@ -16,7 +16,6 @@ flipBoard board = [[(board!!x)!!y | x <- [0..4]] | y <- [0..4]]
 -- Like get_score but also checks for vertical winners
 play_board moves board = maximum [get_score moves board, get_score moves (flipBoard board)]
 
-
 -- Gets the score of all winners, in the order that they win
 find_winners (x:xs) prevMoves boards 
     | score >= 0 = [score] ++ future_winners
@@ -32,7 +31,6 @@ find_winners [] prevMoves boards
     | score >= 0 = [score]
     | otherwise = []
     where score = maximum [play_board prevMoves board | board <- boards]
-
 
 main = do 
     content <- readFile ("input.txt")
@@ -55,4 +53,3 @@ main = do
     putStrLn $ show $ winning_scores
     putStrLn $ show $ head winning_scores
     putStrLn $ show $ last winning_scores
-
