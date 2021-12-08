@@ -33,7 +33,7 @@ main = do
     let input = map (map (filter (\x -> x/= ""))) $ (map (map (splitOn " ")) $ map (splitOn "|") $ init (splitOn "\n" rawInput))
  
     let p1 = sum [ a+b+c+d | (a,b,c,d) <- (map (\x -> part1 (x!!1)) input)]
-    let permutations = permutate "abcdefgh"
+    let permutations = permutate "abcdefg"
     let example = zip $ input !! 0
     putStrLn $ show $ p1
     let values = [part2 (map sort  (x!!0), (x!!1)) permutations | x <- input]
